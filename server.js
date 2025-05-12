@@ -20,8 +20,23 @@ const DATA_FOLDER = path.join(__dirname, "data");
 app.use(express.static("public")); // Serve frontend
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+  res.send(`<!DOCTYPE html>
+<html>
+<head>
+  <title>API Backend for Thai Bank Holiday</title>
+</head>
+<body>
+     <div style="margin-bottom: 1rem; text-align: center;color: #666;">
+            <h1>API Backend for Thai Bank Holiday</h1>
+    </div>
+  
+    <footer style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #666;">
+    © 2025 Narong Sungkhamalai & T-LIVE-CODE Channel. All rights reserved.
+</footer>
+</body>
+</html>`);
 });
+
 // Middleware to check API key and origin
 function authMiddleware(req, res, next) {
   const key = req.query.key || req.headers["x-api-key"];
@@ -91,3 +106,5 @@ app.get("/admin/fetch/:year", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+module.exports = app;
