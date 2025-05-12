@@ -9,3 +9,5 @@
 ## This project using for learning coding for T-LIVE-CODE Channel
   - please subscibe, like share for support us.
     
+## Package dependency
+	npm install axios cors dotenv express
